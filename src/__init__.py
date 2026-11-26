@@ -1,1 +1,1 @@
-"""Hands-on Transformer project package."""
+"""Пакет с собственной реализацией Transformer."""
