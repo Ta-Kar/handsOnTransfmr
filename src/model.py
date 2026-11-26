@@ -1,8 +1,7 @@
-"""Core model components for the Hands-on Transformer project.
+"""Здесь будет находиться основная архитектура Transformer.
 
-We will implement this file incrementally. Do not fill every TODO at once:
-start with token and positional embeddings, test them, and then add the next
-component together.
+Реализуем модель постепенно: сначала слой эмбеддингов, затем остальные
+компоненты. Не нужно заполнять все пропуски сразу.
 """
 
 import torch
@@ -10,7 +9,7 @@ from torch import nn
 
 
 class TokenAndPositionEmbedding(nn.Module):
-    """Convert token IDs into vectors that also carry position information."""
+    """Преобразует ID токенов в векторы с информацией о позиции."""
 
     def __init__(
         self,
@@ -21,31 +20,31 @@ class TokenAndPositionEmbedding(nn.Module):
     ) -> None:
         super().__init__()
 
-        # TODO 1:
-        # Create an nn.Embedding layer for token IDs.
-        # Its vocabulary size is vocab_size and each vector has d_model values.
+        # ЗАДАЧА 1:
+        # Создай nn.Embedding для ID токенов.
+        # В словаре vocab_size токенов, размер каждого вектора — d_model.
         #
-        # TODO 2:
-        # Create a second nn.Embedding layer for positions.
-        # It should contain max_seq_len position vectors, each of size d_model.
+        # ЗАДАЧА 2:
+        # Создай второй nn.Embedding для позиций.
+        # В нём должно быть max_seq_len векторов размерности d_model.
 
-        raise NotImplementedError("We will implement the embedding layers together.")
+        raise NotImplementedError("Слой эмбеддингов пока не реализован.")
 
     def forward(self, input_ids: torch.Tensor) -> torch.Tensor:
-        """Return vectors for input_ids shaped (batch_size, sequence_length)."""
+        """Возвращает векторы для input_ids формы (размер пакета, длина последовательности)."""
 
-        # TODO 3:
-        # Read batch_size and sequence_length from input_ids.shape.
+        # ЗАДАЧА 3:
+        # Получи размер пакета и длину последовательности из input_ids.shape.
         #
-        # TODO 4:
-        # Create position IDs: 0, 1, ..., sequence_length - 1.
-        # Make sure they are on the same device as input_ids.
+        # ЗАДАЧА 4:
+        # Создай ID позиций: 0, 1, ..., sequence_length - 1.
+        # Проверь, что они находятся на том же устройстве, что и input_ids.
         #
-        # TODO 5:
-        # Look up token embeddings and position embeddings.
-        # Add them and return the result.
+        # ЗАДАЧА 5:
+        # Получи эмбеддинги токенов и эмбеддинги позиций.
+        # Сложи их и верни результат.
         #
-        # Expected output shape:
-        # (batch_size, sequence_length, d_model)
+        # Ожидаемая форма результата:
+        # (размер пакета, длина последовательности, d_model)
 
-        raise NotImplementedError("We will implement the forward pass together.")
+        raise NotImplementedError("Прямой проход пока не реализован.")
