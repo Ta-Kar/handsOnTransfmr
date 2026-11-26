@@ -6,26 +6,25 @@ An educational implementation of a small Transformer architecture using PyTorch.
 
 Build a compact, CPU-friendly Transformer whose internal components are implemented explicitly and can be modified in experiments.
 
-The first task is binary sentiment classification on movie reviews (IMDB). Later directions include machine translation and biological sequence classification.
+The first task is binary sentiment classification on movie reviews (IMDB). Later directions may include machine translation and biological sequence classification.
 
-## Current implementation
+## How we work
 
-The first PyTorch model module is in `src/model.py`. It contains:
-
-- token embeddings and learned positional embeddings;
-- multi-head self-attention with a padding mask;
-- feed-forward layers;
-- residual connections and LayerNorm;
-- masked mean pooling and a classification head.
-
-Basic shape and padding checks are in `tests/test_model.py`.
+The implementation is developed incrementally by the project author. The source file contains a small scaffold and TODO comments; components are added and tested one at a time. The numbered notebooks in the repository root are learning notes and may be edited independently.
 
 ## Repository structure
 
-- `src/` — the main PyTorch implementation;
-- `tests/` — basic tests for model behavior;
-- `notebooks/` are not required: numbered learning notebooks are kept in the repository root;
-- `sandbox/` — the original JAX prototype supplied by the instructor. It is preserved separately and is not the main implementation.
+- `src/` — the main PyTorch implementation, currently a scaffold;
+- `sandbox/` — the original JAX prototype supplied by the instructor. It is preserved unchanged;
+- `01_*.ipynb`, `02_*.ipynb`, etc. — supporting learning notebooks.
+
+## Planned first milestone
+
+1. Implement token and positional embeddings.
+2. Add the Transformer encoder block component by component.
+3. Prepare the IMDB dataset and batching.
+4. Train and evaluate a small sentiment classifier.
+5. Compare model configurations and a TF-IDF + Logistic Regression baseline.
 
 ## Project dependencies
 
@@ -34,18 +33,6 @@ Install the packages from the repository root:
 ```bash
 pip install -r requirements.txt
 ```
-
-Run the model checks:
-
-```bash
-python -m unittest discover -s tests
-```
-
-## Planned experiments
-
-- compare model width, depth, number of attention heads and sequence length;
-- measure accuracy, F1, parameter count, training time and throughput;
-- compare the Transformer with a TF-IDF + Logistic Regression baseline.
 
 ## References
 
