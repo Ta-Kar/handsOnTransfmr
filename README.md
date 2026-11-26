@@ -1,41 +1,45 @@
-# Hands-on Transformer
+# Практическая реализация Transformer
 
-An educational implementation of a small Transformer architecture using PyTorch.
+В этом проекте я поэтапно собираю небольшую модель Transformer на PyTorch. Хочу не просто получить работающую нейросеть, а разобраться, из каких частей она состоит и как изменение её параметров влияет на результат.
 
-## Project goal
+## Первая задача
 
-Build a compact, CPU-friendly Transformer whose internal components are implemented explicitly and can be modified in experiments.
+Начну с бинарной классификации отзывов о фильмах из набора данных IMDB: модель должна определять, положительный отзыв или отрицательный.
 
-The first task is binary sentiment classification on movie reviews (IMDB). Later directions may include machine translation and biological sequence classification.
+Когда эта версия заработает, можно будет перейти к другим задачам — например, машинному переводу или анализу биологических последовательностей.
 
-## How we work
+## Как устроена работа
 
-The implementation is developed incrementally by the project author. The source file contains a small scaffold and TODO comments; components are added and tested one at a time. The numbered notebooks in the repository root are learning notes and may be edited independently.
+Я пишу код постепенно, небольшими частями. Сначала разбираюсь с отдельным компонентом, затем реализую его, проверяю и только после этого перехожу к следующему. Учебные блокноты в корне репозитория нужны как справочный материал; их можно дополнять и менять независимо от основной программы.
 
-## Repository structure
+Готовые блоки Transformer вместо собственной реализации использовать не планирую: основные части архитектуры хочу написать самостоятельно, опираясь на возможности PyTorch для работы с тензорами и обучения.
 
-- `src/` — the main PyTorch implementation, currently a scaffold;
-- `sandbox/` — the original JAX prototype supplied by the instructor. It is preserved unchanged;
-- `01_*.ipynb`, `02_*.ipynb`, etc. — supporting learning notebooks.
+## Файлы проекта
 
-## Planned first milestone
+- `sandbox/` — исходный пример преподавателя на JAX. Он сохранён без изменений и служит отправной точкой для разбора архитектуры.
+- `src/` — здесь будет находиться моя реализация на PyTorch.
+- `01_*.ipynb`, `02_*.ipynb` и остальные нумерованные блокноты — заметки и упражнения по темам, которые нужны для проекта.
 
-1. Implement token and positional embeddings.
-2. Add the Transformer encoder block component by component.
-3. Prepare the IMDB dataset and batching.
-4. Train and evaluate a small sentiment classifier.
-5. Compare model configurations and a TF-IDF + Logistic Regression baseline.
+## Ближайшие этапы
 
-## Project dependencies
+1. Реализовать слой эмбеддингов токенов и позиций.
+2. По частям собрать блок Transformer: механизм внимания, полносвязную часть, нормализацию и остаточные связи.
+3. Подготовить данные IMDB и сформировать пакеты примеров для обучения.
+4. Обучить классификатор и проверить его качество на отложенных данных.
+5. Провести эксперименты с размером модели и сравнить результаты с простым базовым методом TF-IDF + логистическая регрессия.
 
-Install the packages from the repository root:
+В экспериментах буду отдельно фиксировать качество классификации, число параметров и время обучения.
+
+## Установка
+
+Из корневой папки репозитория:
 
 ```bash
 pip install -r requirements.txt
 ```
 
-## References
+## Материалы, на которые я опираюсь
 
-- [nanoGPT — Andrej Karpathy](https://github.com/karpathy/nanoGPT)
-- [PyTorch](https://pytorch.org/)
+- [nanoGPT — Андрея Карпати](https://github.com/karpathy/nanoGPT)
+- [Документация PyTorch](https://pytorch.org/)
 - [Attention Is All You Need](https://arxiv.org/abs/1706.03762)
